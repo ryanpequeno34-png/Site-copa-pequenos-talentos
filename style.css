@@ -1,3 +1,60 @@
+  /* Inicio do CSS */
 *{
-    background-color:rgb(22, 36, 148)
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+  :root{
+    --cor-fundo-escuro: #060f0a;
+    --cor-fundo-medio: #0b1f14;
+    --cor-fundo-claro: #f0f7f4;
+    --cor-primaria: #00c97a;
+    --cor-primaria-escura: #009958;
+    --cor-secundaria: #ffe135;
+    --cor-texto-claro: #edfaf3;
+    --cor-texto-escuro: #052e1c;
+    --cor-texto-suave: #7db89a;
+    --cor-borda: rgba(0, 201, 122, 0.12);
+  
+    --fonte-principal: 'Inter', 'Segoe UI', sans-serif;
+  
+    --espacamento-secao: 6rem;
+    --raio-borda: 14px;
+    --raio-borda-pequeno: 8px;
+    --largura-maxima: 1140px;
+}
+
+  body {
+    /* Configurar fonte */
+    font-family: var(--fonte-principal);
+
+    /* Cor de fundo */
+    background-color: var(--cor-fundo-escuro);
+
+    /* Cor da  fonte/texto */
+    color: var(--cor-texto-claro);
+
+    /* Altura da linha do texto */
+    line-height: 1.6;
+}
+
+
+  a {
+    /* Decoração do texto */
+text-decoration: none;
+color: var(--cor-texto-claro);
+
+    /* Animações */
+    transition: color 0.3 ease;
+}
+  ul {
+    /* Estilizaçã da linha  */
+    list-style: none;
+}
+
+  img {
+    max-width: 50%;
 }
