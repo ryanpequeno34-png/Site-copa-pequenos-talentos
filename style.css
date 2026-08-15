@@ -56,5 +56,698 @@ color: var(--cor-texto-claro);
 }
 
   img {
-    max-width: 50%;
+    max-width: 100%;
+    display:block;
 }
+
+h1, h2, h3, h4 {
+    line-height: 1.2;
+
+/* Ajusta a largura do texto */
+   font-weight: 700;
+
+}
+
+
+/* COMPONENTES REUTILIZÁVEIS */
+
+
+.container {
+    max-width: var(--largura-maxima);
+
+/* Espaçamento externo */
+    margin: 0 auto;
+
+/* Espaçamento interno */
+    padding: 0 1.5rem;
+
+}
+
+/*Botões*/
+
+.btn {
+    padding: 0.85rem 2rem;
+
+/*Arredondamento dos cantos*/
+    border-radius: var(--raio-borda);
+
+    font-weight: 600;
+
+/*Tamanho do texto*/
+    font-size: lrem;
+
+/*Estiliza o cursor*/
+    cursor: pointer;
+
+    border: 2px solid transparent;
+
+    transition: all 0.3s ease;
+}
+.btn-primario {
+  /*Cor de fundo do botão*/
+  background-color: var(--cor-primaria);
+  /*Cor da letra do botão*/
+  color: #000;
+  /*Peso da fonte do botão*/
+  font-weight: 700;
+
+}
+/*Estilização quando passa o mouse por cima do botão primario efeito hover*/
+.btn-primario:hover{
+  background-color: transparent;
+  color: var(--cor-primaria);
+  border-color: var(--cor-primaria) ;
+
+}
+
+.btn-secundario{
+  background-color: transparent;
+  color: var(--cor-texto-claro);
+  border-color: var(--cor-texto-claro);
+}
+/*Estilização quando passa o mouse por cima do botão  secundário efeito hover*/
+.btn-secundario:hover{
+  background-color: var(--cor-texto-claro);
+  color: var(--cor-fundo-escuro);
+}
+
+.btn-grande{
+  width: 100%;
+  padding: 1.1rem;
+  font-size: 1.1rem;
+}
+/* Bloco de cabeçalho padrão de cada seção */
+.secao-titulo {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.secao-titulo h2 {
+  font-family: var(--fonte-display);
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: 1px;  /* Espaço entre as letras */
+  margin-bottom: 0.5rem;
+}
+
+.secao-titulo p {
+  color: var(--cor-texto-suave);
+  font-size: 1.05rem;
+}
+
+/* ----------------------------------------------------------------
+   4. NAVBAR
+   Menu superior fixado no topo da página.
+---------------------------------------------------------------- */
+#navbar {
+  position: sticky;      /* Fica colado no topo ao rolar a página */
+  top: 0;
+  padding: 1rem 0;
+  background-color: var(--cor-fundo-escuro);
+  border-bottom: 1px solid var(--cor-borda);
+  z-index: 100;          /* Garante que o menu fique sempre na frente dos outros elementos */
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between; /* Logo na esquerda, links na direita */
+  align-items: center;            /* Alinha verticalmente no centro */
+  max-width: var(--largura-maxima);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.nav-logo {
+  font-family: var(--fonte-display);
+  font-size: 1.7rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.logo-destaque {
+  color: var(--cor-primaria);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem; /* Espaço entre cada link do menu */
+}
+
+.nav-links a {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--cor-texto-suave);
+  letter-spacing: 0.5px;
+}
+
+/* Fica verde ao passar o mouse */
+.nav-links a:hover {
+  color: var(--cor-primaria);
+}
+
+/* ----------------------------------------------------------------
+   5. HEADER (Hero Section)
+   Primeira dobra do site: tela de impacto com chamada e imagem.
+---------------------------------------------------------------- */
+header {
+  min-height: 100vh;     /* Ocupa pelo menos 100% da altura da tela */
+  display: flex;
+  align-items: center;   /* Centraliza o conteúdo verticalmente */
+  padding: 8rem 1.5rem 5rem;
+  background-color: var(--cor-fundo-medio);
+}
+
+.header-content {
+  max-width: var(--largura-maxima);
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 4rem;             /* Distância entre a coluna de texto e a imagem */
+}
+
+.header-texto {
+  flex: 1;               /* Ocupa todo o espaço disponível na esquerda */
+}
+
+.header-imagem {
+  flex-shrink: 0;        /* Impede a imagem de ser esmagada se a tela diminuir */
+  width: 42%;
+  height: 380px;
+  border-radius: var(--raio-borda);
+  overflow: hidden;      /* Corta as bordas da foto para respeitar o border-radius */
+}
+
+.header-foto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     /* Preenche o quadrado sem distorcer ou esticar */
+  object-position: center;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+/* Zoom suave na foto ao passar o mouse sobre o container */
+.header-imagem:hover .header-foto {
+  transform: scale(1.04);
+}
+
+.header-subtitulo {
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase; /* Deixa tudo em MAIÚSCULAS */
+  color: var(--cor-primaria);
+  margin-bottom: 1.2rem;
+}
+
+.header-titulo {
+  font-family: var(--fonte-display);
+  font-size: 6rem;
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+}
+
+.header-descricao {
+  font-size: 1.1rem;
+  color: var(--cor-texto-suave);
+  max-width: 480px;
+  margin-bottom: 2.5rem;
+}
+
+.header-botoes {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;       /* Se não couber na largura, joga o segundo botão para baixo */
+}
+
+/* ----------------------------------------------------------------
+   6. CLASSES BASE DAS SEÇÕES
+   Alternância entre seções claras e escuras para dar contraste.
+---------------------------------------------------------------- */
+.secao {
+  padding: var(--espacamento-secao) 0;
+}
+
+.secao-escura {
+  background-color: var(--cor-fundo-escuro);
+  color: var(--cor-texto-claro);
+}
+
+.secao-clara {
+  background-color: var(--cor-fundo-claro);
+  color: var(--cor-texto-escuro);
+}
+
+.secao-clara .secao-titulo p {
+  color: #666;
+}
+
+/* ----------------------------------------------------------------
+   7. SECTION 1 — GRID DE SELEÇÕES
+   Cards organizados em 3 colunas iguais.
+---------------------------------------------------------------- */
+.grid-selecoes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Cria 3 colunas de tamanho idêntico (1 fração cada) */
+  gap: 1.5rem;                           /* Espaço entre os cards */
+}
+
+.card-selecao {
+  background-color: rgba(255, 255, 255, 0.04); /* Fundo sutilmente translúcido */
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+/* Card sobe levemente e ganha destaque de borda verde no hover */
+.card-selecao:hover {
+  transform: translateY(-6px);
+  border-color: var(--cor-primaria);
+}
+
+.card-imagem {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.card-foto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+/* Pequeno zoom na foto da seleção ao passar o mouse */
+.card-selecao:hover .card-foto {
+  transform: scale(1.06);
+}
+
+.card-corpo {
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;               /* Faz todos os corpos de card terem a mesma altura total */
+}
+
+.card-dia {
+  font-size: 0.78rem;
+  color: var(--cor-primaria);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Etiqueta amarela (badge) */
+.tag-palco {
+  display: inline-block;
+  margin-top: auto;      /* Empurra a tag sempre para o final do card */
+  padding: 0.3rem 0.8rem;
+  background-color: rgba(255, 223, 0, 0.15);
+  color: var(--cor-secundaria);
+  border-radius: 50px;   /* Deixa a tag em formato de pílula redondinha */
+  font-size: 0.75rem;
+  font-weight: 600;
+  align-self: flex-start;
+}
+
+.card-corpo h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.1rem;
+}
+
+.card-corpo p {
+  font-size: 0.85rem;
+  color: var(--cor-texto-suave);
+}
+
+/* ----------------------------------------------------------------
+   8. SECTION 2 — GRID DE GALERIA (Estádios)
+   Grid com layout de mosaico: a primeira foto ocupa espaço duplo.
+---------------------------------------------------------------- */
+.grid-galeria {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 220px; /* Define que todas as linhas criadas terão 220px de altura */
+  gap: 1rem;
+}
+
+.foto-item {
+  background-color: #1a1a2e;
+  border-radius: var(--raio-borda);
+  overflow: hidden;
+  position: relative;    /* Necessário para posicionar a legenda por cima da foto */
+}
+
+/* Foto principal em destaque ocupando 2 colunas e 2 linhas */
+.foto-grande {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.foto-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.foto-item:hover .foto-img {
+  transform: scale(1.05);
+}
+
+/* Legenda translúcida sobreposta no rodapé da imagem */
+.foto-legenda {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.6rem 1rem;
+  background-color: rgba(0, 0, 0, 0.6); /* Preto semi-transparente para dar leitura */
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* ----------------------------------------------------------------
+   9. SECTION 3 — FORMULÁRIO + LOCALIZAÇÃO
+   Divide a tela em 2 blocos: formulário à esquerda e mapa/info à direita.
+---------------------------------------------------------------- */
+.ingressos-layout {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start; /* Evita que uma coluna force a outra a esticar */
+}
+
+/* Faz o formulário e a lateral dividirem a largura igualmente */
+.ingressos-layout > div,
+.local-wrapper {
+  flex: 1;
+}
+
+.formulario {
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* Agrupa dois inputs lado a lado na mesma linha */
+.form-linha {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.form-linha .form-grupo {
+  flex: 1;               /* Cada campo na linha divide a largura ao meio */
+}
+
+/* Empilha o label em cima do input */
+.form-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--cor-texto-claro);
+}
+
+/* Estilo unificado para campos de texto, select e textarea */
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: rgba(255, 255, 255, 0.07);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda-pequeno);
+  color: var(--cor-texto-claro);
+  font-size: 1rem;
+  font-family: inherit;
+  outline: none;         /* Remove a borda azul padrão do navegador */
+  transition: border-color 0.3s ease;
+}
+
+/* Ao clicar para digitar, a borda acende em verde */
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--cor-primaria);
+}
+
+textarea {
+  resize: vertical;      /* Permite ao usuário redimensionar apenas na altura */
+}
+
+/* Caixinha de checkbox (alinhamento horizontal) */
+.form-checkbox {
+  flex-direction: row;   /* Coloca o checkbox ao lado do texto, e não em cima */
+  align-items: center;
+}
+
+.form-checkbox input {
+  width: auto;           /* Não ocupa 100% da largura, mantém o tamanho da caixinha */
+  cursor: pointer;
+}
+
+.form-checkbox label {
+  cursor: pointer;
+}
+
+.form-checkbox a {
+  color: var(--cor-primaria);
+  text-decoration: underline;
+}
+
+/* Coluna direita: Informações e Mapa */
+.local-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.local-info {
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda);
+  padding: 1.5rem;
+}
+
+.local-info h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: var(--cor-texto-claro);
+}
+
+.local-info address {
+  font-style: normal;    /* Tira o itálico padrão da tag <address> */
+  margin-bottom: 1rem;
+}
+
+.local-info address p,
+.local-contatos p {
+  color: var(--cor-texto-suave);
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+}
+
+/* Container do mapa interativo */
+.mapa-wrapper {
+  border-radius: var(--raio-borda);
+  overflow: hidden;
+  border: 1px solid var(--cor-borda);
+  height: 300px;
+}
+
+.mapa-wrapper iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ----------------------------------------------------------------
+   10. FOOTER
+   Rodapé com links, descrição e copyright.
+---------------------------------------------------------------- */
+footer {
+  background-color: var(--cor-fundo-medio);
+  border-top: 1px solid var(--cor-borda);
+  padding: 4rem 0 2rem;
+}
+
+.footer-grid {
+  display: flex;
+  justify-content: space-around;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-coluna h4 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: var(--cor-texto-claro);
+}
+
+.footer-coluna p {
+  color: var(--cor-texto-suave);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+address {
+  font-style: normal;
+}
+
+address p {
+  margin-bottom: 0.5rem;
+}
+
+.redes-sociais {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.rede-link {
+  color: var(--cor-texto-suave);
+  font-size: 0.9rem;
+}
+
+.rede-link:hover {
+  color: var(--cor-secundaria); /* Amarelo no hover */
+}
+
+.footer-fundo {
+  border-top: 1px solid var(--cor-borda);
+  padding-top: 2rem;
+  text-align: center;
+  color: var(--cor-texto-suave);
+  font-size: 0.85rem;
+}
+
+/* ================================================================
+   12. RESPONSIVIDADE — MEDIA QUERIES
+   Adapta o layout para funcionar perfeitamente em Tablets e Celulares.
+================================================================ */
+
+/* ---- TABLET (telas de até 768px de largura) ---- */
+@media (max-width: 768px) {
+  /* Diminui fontes gigantes para não quebrar a tela */
+  .secao-titulo h2 {
+    font-size: 2.4rem;
+  }
+
+  .header-titulo {
+    font-size: 3.5rem;
+  }
+
+  /* Oculta os links da navbar para simplificar em telas médias */
+  .nav-links {
+    display: none;
+  }
+
+  header {
+    padding: 7rem 1.5rem 4rem;
+  }
+
+  /* No header, empilha texto e imagem verticalmente */
+  .header-content {
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .header-imagem {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  /* Transforma o grid de seleções em 2 colunas */
+  .grid-selecoes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Transforma a galeria em 2 colunas */
+  .grid-galeria {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 200px;
+  }
+
+  /* A foto grande agora ocupa 2 colunas mas apenas 1 linha de altura */
+  .foto-grande {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  .footer-grid {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .footer-coluna {
+    width: 45%;
+  }
+
+  /* Inputs que ficavam lado a lado agora ficam empilhados */
+  .form-linha {
+    flex-direction: column;
+  }
+
+  /* Formulário e mapa agora ficam um embaixo do outro */
+  .ingressos-layout {
+    flex-direction: column;
+  }
+}
+
+/* ---- CELULAR (telas de até 480px de largura) ---- */
+@media (max-width: 480px) {
+  .secao {
+    padding: 3rem 0;     /* Reduz o respiro das seções para aproveitar espaço */
+  }
+
+  /* Cards de seleções viram 1 única coluna (lista vertical) */
+  .grid-selecoes {
+    grid-template-columns: 1fr;
+  }
+
+  /* Galeria vira 1 única coluna */
+  .grid-galeria {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 200px;
+  }
+
+  /* Todas as fotos agora ocupam 1 espaço padrão */
+  .foto-grande {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .footer-coluna {
+    width: 100%;
+  }
+
+  /* Botões do header empilhados para facilitar o clique com o polegar */
+  .header-botoes {
+    flex-direction: column;
+  }
+
+  .formulario {
+    padding: 1.5rem;     /* Reduz padding interno do formulário */
+  }
+}
+
